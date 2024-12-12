@@ -11,11 +11,12 @@ class Cauthu extends Model
    
 
     use Notifiable;
-    protected $table ="Cauthu";
+    protected $table ="cauthu";
     public $timestamp = true;
 
     // nhuwngx cot dc insert update edit
-    protected $fillble = [
-        'ten_cau_thu', 'tuoi', 'email' , 'vi_tri', 'quoc_tich', 'luong'
+    protected $fillable = [
+        'ten_cau_thu', 'tuoi', 'email', 'vi_tri', 'quoc_tich', 'luong',
     ];
+    
 }

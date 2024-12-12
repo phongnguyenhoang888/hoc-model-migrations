@@ -41,7 +41,7 @@ class EditController extends Controller
             ];
 
 
-         if(Cauthu::insert($lay_dulieu_form)){
+         if(cauthu::insert($lay_dulieu_form)){
             echo "them thanh cong";
          }
             return redirect('/list');
@@ -57,7 +57,7 @@ class EditController extends Controller
      {
          // Lấy thông tin cầu thủ theo ID
        // $datacauthu_edit = DB::table('cauthu')->where('id', $id)->first();
-       $datacauthu_edit = Cauthu::where('id', $id)->first();
+       $datacauthu_edit = cauthu::where('id', $id)->first();
          // Kiểm tra nếu không tìm thấy cầu thủ
         
      
@@ -69,7 +69,7 @@ class EditController extends Controller
      
      public function update(Request $request,$id)
      {
-       $cauthu= Cauthu::findOrFail($id);
+       $cauthu= cauthu::findOrFail($id);
       
         $data_update = $request->all();
        
@@ -78,10 +78,10 @@ class EditController extends Controller
         ////exit;
         if ($cauthu->update($data_update)) {
             echo "thanhcong";
-            // return redirect('/index_cauthu')->with('success', 'Cập nhật thành công!');
+             return redirect('/list')->with('success', 'Cập nhật thành công!');
         } else {
             echo "thatbai";
-            // return redirect('/index_cauthu')->with('error', 'Cập nhật thất bại!');
+             return redirect('/list')->with('error', 'Cập nhật thất bại!');
         }
         
      }
@@ -93,7 +93,7 @@ class EditController extends Controller
     public function delete($id)
     {
         //
-        Cauthu::where('id',$id)->delete();
+        cauthu::where('id',$id)->delete();
         return redirect('/list');
 
     }
