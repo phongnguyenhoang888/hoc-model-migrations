@@ -14,14 +14,11 @@ return new class extends Migration
         Schema::create('Cauthu', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('ten_cau_thu');
-            
             $table->integer('tuoi');
             $table->string('email');
             $table->string('vi_tri');
             $table->string('quoc_tich');
             $table->float('luong');
-
-
             $table->timestamps();
         });
     }
