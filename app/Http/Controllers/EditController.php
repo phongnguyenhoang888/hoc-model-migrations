@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\support\Facades\DB;
 use App\Models\Cauthu; // phuong thuc goi model 
 use Termwind\Components\Dd;
+use App\Http\Requests\addRequest;
+
+use App\Http\Requests\editRequest;
 
 class EditController extends Controller
 {
@@ -30,7 +33,10 @@ class EditController extends Controller
      public function add(){
         return view('/add');
      }
-    public  function insert(Request $request){
+    public  function insert(editRequest $request){
+
+        
+        
             $lay_dulieu_form =[
                 'ten_cau_thu' => $request->input('ten_cau_thu'),
                'tuoi' => $request->input('tuoi'),
@@ -67,7 +73,7 @@ class EditController extends Controller
 
      }
      
-     public function update(Request $request,$id)
+     public function update(addRequest $request,$id)
      {
        $cauthu= cauthu::findOrFail($id);
       

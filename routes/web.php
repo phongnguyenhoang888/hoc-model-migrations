@@ -33,3 +33,7 @@ Route::post('/Edit/{id}', [EditController::class, 'update']);
 Route::get('/delete/{id}',[EditController::class, 'delete']);
 ///
 
+
+Auth::routes();
+
+Route::get('/list', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

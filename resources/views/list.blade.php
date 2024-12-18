@@ -1,34 +1,6 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <style type="text/css">
-            table{
-                width: 800px;
-                margin: auto;
-                text-align: center;
-            }
-            tr {
-                border: 1px solid;
-            }
-            th {
-                border: 1px solid;
-            }
-            td {
-                border: 1px solid;
-            }
-            h1{
-                text-align: center;
-                color: red;
-            }
-            #button{
-                margin: 2px;
-                margin-right: 10px;
-                float: right;
-            }
-        </style>
-    </head>
-    <body>
+@extends('layouts.app')
+
+@section('content')
         <table id="datatable" style="border: 1px solid">
             <h1>Quản lý Cau thu</h1>
             <thead>
@@ -55,8 +27,8 @@
                         <td>{{ $value->vi_tri}}</td>
                         <td>{{ $value->quoc_tich}}</td>
                         <td>{{ $value->luong }}</td>
-                        <td><a href="{{url('/Edit', $value->id)}}">Edit</a></td>
-                        <td><a href="{{url('/delete', $value->id)}}"> Delete</a></td>
+                        <td><a  href="{{url('/Edit', $value->id)}}"><button id="button">Edit</button></a></td>
+                        <td><a href="{{url('/delete', $value->id)}}"><button id="button">Delete</button></a></td>
                     </td>
                     </tr>
                 @endforeach
@@ -70,5 +42,4 @@
                 </tr>
             </tfoot>
         </table>
-    </body>
-</html>
+@endsection

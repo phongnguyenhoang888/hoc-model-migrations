@@ -4,9 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thêm Cầu Thủ</title>
+    <style type="text/css">
+            table{
+                width: 800px;
+                margin: auto;
+                text-align: center;
+            }
+            tr {
+                border: 1px solid;
+            }
+            th {
+                border: 1px solid;
+            }
+            td {
+                border: 1px solid;
+            }
+            h1{
+                text-align: center;
+                color: red;
+            }
+            #button{
+                margin: 2px;
+                margin-right: 10px;
+                float: right;
+            }
+        </style>
 </head>
 <body>
     <h2>Thêm sinh viên</h2>
+            @if($errors->any())
+                <div class="alert alert-danger alert-dismissible">
+                                    
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{$error}}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
     <form method="POST">
         @csrf
         <div>
